@@ -1,4 +1,4 @@
-# Go - Mongo - Gin starter template
+## Go - Mongo - Gin starter template
 
 Starter repository for new projects written in Golang with MongoDB, Gin, and Swagger.
 
