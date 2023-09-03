@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  mongodb:
+    image: mongo:6-jammy
+    ports:
+      - '27017:27017'
+    networks:
+      - node-network
+
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_URI=mongodb://localhost:27017
+      - APP_HOST=http://localhost
+      - APP_PORT=3000
+      - GIN_MODE=release
+    depends_on:
+      - mongodb
+    networks:
+      - node-network
+
+networks:
+  node-network:
+    driver: bridge
